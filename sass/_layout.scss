@@ -1,0 +1,42 @@
+.container {
+    max-width: 120rem;
+    margin: 8rem auto;
+    background-color: var(--color-grey-light-1);
+    box-shadow: var(--shadow-dark);
+
+    min-height: 50rem;
+
+}
+
+.header {
+    height: 7rem;
+    background-color: var(--color-white);
+    border-bottom: var(--color-grey-light-2);
+
+    // Para alinear los elementos del header.
+    display: flex;
+    justify-content: space-between; //main axis
+    align-items: center; //cross axis
+}
+
+.content {
+    display: flex;
+}
+
+.sidebar {
+    background-color: var(--color-grey-dark-1);
+
+    flex: 0 0 18%;
+
+    //Para que los iconos y el texto legal se separen, cambie la direccion del main axis de horizontal a vertical usando flex-direction; y justify-content: space-between
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hotel-view {
+    background-color: var(--color-white);
+    height: 80rem;
+
+    flex: 1; //para que crezca a lo ancho todo lo que pueda
+}
