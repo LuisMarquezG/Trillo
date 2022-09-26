@@ -11,7 +11,7 @@
 .header {
     height: 7rem;
     background-color: var(--color-white);
-    border-bottom: var(--color-grey-light-2);
+    border-bottom: 1px solid var(--color-grey-light-2);
 
     // Para alinear los elementos del header.
     display: flex;
