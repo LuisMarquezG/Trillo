@@ -15,6 +15,12 @@
   align-items: centre;
   justify-content: centre;
 
+  @media only screen and (max-width: $bp-smallest) {
+    order: 1; //para mover la barra de busquedas al final
+    flex: 0 0 100%; //Para que la barra se mueva hacia abajo al llegar la pantalla a los 500px
+    margin: 0 3rem;
+  }
+
   &__input {
     width: 90%;
     font-family: inherit;
@@ -136,12 +142,25 @@
   list-style: none;
   margin-top: 3.5rem;
 
+  @media only screen and (max-width: $bp-medium) {
+    display: flex; 
+    margin: 0;
+}
+
   &__item {
     position: relative; //Paso 1 para desplegar barra rosada sobre elementos del side nav.
 
     &:not(:last-child) {
       margin-bottom: 0.5rem;
+
+      @media only screen and (max-width: $bp-medium) {
+        margin: 0;
     }
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+      flex: 1; //para que los links se extiendan a lo ancho de la barra.
+  }
   }
 
   //Paso 2 para desplegar barra rosada sobre elementos del side nav.
@@ -191,6 +210,17 @@
     //Para centrar los elementos verticalmente
     display: flex;
     align-items: center;
+
+    @media only screen and (max-width: $bp-medium) {
+      justify-content: center; //Para centrar los links.
+      padding: 2rem;
+  }
+
+    @media only screen and (max-width: $bp-small) { //Paso 1para centrar los iconos del sidebar
+      flex-direction: column;
+      padding: 1.5rem .5rem;
+    
+    }
   }
 
   /* Para demostar otro uso de currentColor
@@ -204,7 +234,15 @@
     height: 1.75rem;
     fill: currentColor;
     margin-right: 2rem;
+
+    @media only screen and (max-width: $bp-small) {//Paso 2 para centrar los iconos del sidebar
+      margin-right: 0;
+      margin-bottom: .7rem;
+      width: 1.5rem;
+      height: 1.5rem;
   }
+  }
+
 }
 
 ///////////////////////////////////
@@ -214,6 +252,10 @@
   color: var(--color-grey-light-4);
   text-align: center;
   padding: 2.5rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    display: none;
+}
 }
 
 ///////////////////////////////////
@@ -242,6 +284,11 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+      padding: 1.25 2rem;
+    }
   }
 
   &__stars {
@@ -278,17 +325,29 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 0 1.5rem;
+    }
   }
 
   &__rating-average {
     font-size: 2.25rem;
     font-weight: 300;
     margin-bottom: -3px; //Para disminuir el espacio entre '8.6' y '429 votes'
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+    }
   }
 
   &__rating-count {
     font-size: 0.8rem;
     text-transform: uppercase;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: .6rem;
+    }
   }
 }
 
@@ -387,17 +446,19 @@
 ///////////////////////////////////
 /// RECOMMEND
 .recommend {
-  display: flex;
   align-items: center;
   //text
   font-size: 1.3rem;
   color: var(--color-grey-dark-3);
+  display: flex;
 
   &__count {
     margin-right: auto;
   }
-  // &__friends {} use if you need it
-
+  &__friends {
+    display: flex;
+  } 
+  
   //photos
   &__photo {
     box-sizing: content-box; //Para que la imagen no se haga pequena por tener el borde blanco. lec83
@@ -405,10 +466,11 @@
     width: 4rem;
     border-radius: 50%;
     border: 3px solid var(--color-white);
+    display: flex; // Para que las imagenes se mantengan alineadas no importa el tamano de oa pantalla.
 
     //para que se solapen las fotos
     &:not(:last-child) {
-      margin-right: -1.5rem;
+      margin-right: -2rem;
     }
   }
 }
@@ -424,6 +486,11 @@
 
   position: relative; //Para poner las comilla en la esquina en la que estan.
   overflow: hidden; //Para que las comilla no se salgan de su caja
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2rem;
+    margin-bottom: 3rem;
+}
 
   &__text {
     margin-bottom: 2rem;
@@ -484,6 +551,10 @@
 .cta {
   padding: 3.5rem 0;
   text-align: center;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2.5rem 0;
+}
 
   &__book-now {
     font-size: 2rem;
